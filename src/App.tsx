@@ -85,7 +85,7 @@ export default function App() {
         <div className="grid grid-cols-1 sm:grid-cols-2 border border-[#d8d2c8] divide-y divide-x divide-[#d8d2c8] rounded-lg overflow-hidden">
           {/* Location */}
           <div className="flex justify-center items-center flex-col">
-            <p className="text-white mb-3">Location</p>
+            <p className="text-white text-xl mb-3">Location</p>
             {[
               ["Country", data?.location?.country],
               ["Timezone", data?.location?.timezone],
@@ -223,11 +223,11 @@ export default function App() {
                 ))}
               </div>
               <div className="font-mono-dm text-[10px] text-stone-400 text-right leading-relaxed">
-                <div className="text-sm flex items-center gap-1 justify-end">
+                <div className="text-sm flex flex-col sm:flex-row items-center gap-1 justify-end">
                   {formatDateandTime(d.sunrise)}
                   <p className="text-sm">🌅</p>
                 </div>
-                <div className="text-sm flex items-center gap-1 justify-end">
+                <div className="text-sm flex flex-col sm:flex-row items-center gap-1 justify-end">
                   {formatDateandTime(d.sunset)}
                   <p className="text-sm">🌇</p>
                 </div>
