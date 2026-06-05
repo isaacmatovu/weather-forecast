@@ -2,11 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { type DailyWeather, type HourlyWeather } from "./types";
 import axios from "axios";
 
-const baseURL = import.meta.env.VITE_API_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const fetchWeather = async () => {
-  const res = await axios.get(`${baseURL}/v1/weather`, {
+  const res = await axios.get(`/api/v1/weather`, {
     headers: { Authorization: `Bearer ${apiKey}` },
   });
   return res.data;
