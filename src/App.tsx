@@ -1,4 +1,3 @@
-import "./App.css";
 import { useQuery } from "@tanstack/react-query";
 import { type DailyWeather, type HourlyWeather } from "./types";
 import axios from "axios";
