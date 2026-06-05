@@ -8,6 +8,7 @@ const fetchWeather = async () => {
   const res = await axios.get(`/api/v1/weather`, {
     headers: { Authorization: `Bearer ${apiKey}` },
   });
+  console.log("weather data:", res.data);
   return res.data;
 };
 
@@ -64,6 +65,14 @@ export default function App() {
     );
   }
 
+  if (!data) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <p className="text-red-600 text-xl">No data available.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-sky-950 text-[#1a1a1a]">
       <div className="max-w-3xl mx-auto px-6 py-12">
@@ -78,10 +87,10 @@ export default function App() {
           <div className="flex justify-center items-center flex-col">
             <p className="text-white mb-3">Location</p>
             {[
-              ["Country", data.location.country],
-              ["Timezone", data.location.timezone],
-              ["Lat", data.location.lat],
-              ["Lon", data.location.lon],
+              ["Country", data?.location?.country],
+              ["Timezone", data?.location?.timezone],
+              ["Lat", data?.location?.lat],
+              ["Lon", data?.location?.lon],
             ].map(([label, val]) => (
               <div
                 key={label}
@@ -98,18 +107,18 @@ export default function App() {
             <div className="flex flex-col sm:flex-row gap-2 justify-center items-center ">
               <p className="text-white text-xl">Right Now</p>
               <p className="text-gray-500">
-                {formatDateandTime(data.current.time)}
+                {formatDateandTime(data?.current?.time)}
               </p>
             </div>
             <div className="flex justify-center items-center gap-4">
               <p className="text-3xl text-white">
-                {data.current.temperature}°C
+                {data?.current?.temperature}°C
               </p>
               <p className="text-2xl">
-                {data.current.temperature > 20
+                {data?.current?.temperature > 20
                   ? "☀️"
-                  : data.current.temperature > 10 &&
-                      data.current.temperature < 20
+                  : data?.current?.temperature > 10 &&
+                      data?.current?.temperature < 20
                     ? "🌥️"
                     : "🌧️"}
               </p>
@@ -117,24 +126,24 @@ export default function App() {
 
             <div className="flex items-center gap-2">
               <img
-                src={data.current.icon}
+                src={data?.current?.icon}
                 alt="icon"
                 className="w-8 h-8 text-white"
               />
               <p className="text-stone-400">
-                Code {data.current.condition_code}
+                Code {data?.current?.condition_code}
               </p>
             </div>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <div className="flex justify-center items-center gap-4">
                 <p className="text-stone-400">
-                  Wind {data.current.wind_speed} m/s
+                  Wind {data?.current?.wind_speed} m/s
                 </p>
                 <p className="text-xl">🌪️</p>
               </div>
               <div className="flex justify-center items-center gap-4">
                 <p className="text-stone-400">
-                  Wind Direction: {data.current.wind_direction}
+                  Wind Direction: {data?.current?.wind_direction}
                 </p>
                 <p className="text-xl">🧭</p>
               </div>
@@ -147,7 +156,7 @@ export default function App() {
           HOURLY
         </h2>
         <div className="flex gap-px overflow-x-auto bg-[#d8d2c8] border border-[#d8d2c8]">
-          {data.hourly.map((h: HourlyWeather, i: number) => (
+          {data?.hourly?.map((h: HourlyWeather, i: number) => (
             <div
               key={i}
               className="bg-[#f5f2ed] min-w-28 shrink-0 flex flex-col gap-1 p-3"
@@ -185,16 +194,19 @@ export default function App() {
           7-Day
         </h2>
         <div className="divide-y divide-[#d8d2c8]">
-          {data.daily.map((d: DailyWeather, i: number) => (
+          {data?.daily?.map((d: DailyWeather, i: number) => (
             <div
               key={i}
-              className="grid grid-cols-[140px_36px_1fr_auto] items-center gap-3 py-2.5"
+              className="grid grid-cols-2 sm:grid-cols-3 items-center gap-3 py-2.5"
             >
-              <div className="text-[13px] font-medium">
-                <p className="text-gray-400">Date:</p>
-                <p className="text-white">{formatDay(d.date)}</p>
+              <div className="text-[13px] font-medium flex flex-col sm:flex-row gap-5">
+                <div>
+                  <p className="text-gray-400">Date:</p>
+                  <p className="text-white">{formatDay(d.date)}</p>
+                </div>
+                <img src={d.icon} alt="" className="w-6 h-6" />
               </div>
-              <img src={d.icon} alt="" className="w-6 h-6" />
+
               <div className="font-mono-dm text-[12px]">
                 {[
                   ["Min", `${d.temp_min}°C`],
@@ -227,10 +239,10 @@ export default function App() {
         {/* ── Footer ── */}
         <div className="mt-12 pt-4 border-t border-[#d8d2c8] flex gap-6">
           <p className="text-[10px] text-stone-300 ">
-            Country: {data.client_geo.country}
+            Country: {data?.client_geo?.country}
           </p>
           <p className="text-[10px] text-stone-300">
-            IP: {data.client_geo.ip_hash}
+            IP: {data?.client_geo?.ip_hash}
           </p>
         </div>
       </div>
