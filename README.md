@@ -40,7 +40,7 @@ A responsive weather dashboard built with React and TypeScript. Displays current
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/isaacmatovu/weather-forecast.git
    cd your-repo-name
    ```
 
