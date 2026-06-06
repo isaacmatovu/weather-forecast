@@ -161,7 +161,7 @@ export default function App() {
               key={i}
               className="bg-[#f5f2ed] min-w-28 shrink-0 flex flex-col gap-1 p-3"
             >
-              <p className="font-mono-dm text-[10px] text-stone-400">
+              <p className="font-mono-dm text-[15px] text-stone-400">
                 {formatHour(h.time)}
               </p>
               <img src={h.icon} alt="icon" className="w-7 h-7 my-1" />
