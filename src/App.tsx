@@ -115,12 +115,17 @@ export default function App() {
                 {data?.current?.temperature}°C
               </p>
               <p className="text-2xl">
-                {data?.current?.temperature > 20
-                  ? "☀️"
-                  : data?.current?.temperature > 10 &&
-                      data?.current?.temperature < 20
-                    ? "🌥️"
-                    : "🌧️"}
+                {data?.current?.temperature >= 30
+                  ? "🔥"
+                  : data?.current?.temperature >= 20
+                    ? "☀️"
+                    : data?.current?.temperature > 15 &&
+                        data?.current?.temperature < 20
+                      ? "🌥️"
+                      : data?.current?.temperature > 10 &&
+                          data?.current?.temperature < 15
+                        ? "☁️"
+                        : "🌧️"}
               </p>
             </div>
 
