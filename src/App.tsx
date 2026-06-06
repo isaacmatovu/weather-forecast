@@ -155,7 +155,7 @@ export default function App() {
         <h2 className="text-stone-400 mt-10 mb-3 pb-2 border-b border-[#d8d2c8]">
           HOURLY
         </h2>
-        <div className="flex gap-px overflow-x-auto bg-[#d8d2c8] border border-[#d8d2c8]">
+        <div className="flex gap-1 overflow-x-auto bg-[#d8d2c8] border border-[#d8d2c8]">
           {data?.hourly?.map((h: HourlyWeather, i: number) => (
             <div
               key={i}

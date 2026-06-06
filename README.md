@@ -2,7 +2,7 @@
 
 A responsive weather dashboard built with React and TypeScript. Displays current conditions, hourly forecasts, and a 7-day outlook for the user's location — fetched from a custom weather API.
 
-**Live Demo:** [your-deployment-url.com](https://your-deployment-url.com)
+**Live Demo:** (https://weather-forecastertl.netlify.app/)
 
 ---
 
@@ -91,7 +91,7 @@ VITE_API_KEY=your_api_key_here
 The app makes a single authenticated GET request:
 
 ```
-GET /v1/weather
+GET /api/v1/weather
 Authorization: Bearer <VITE_API_KEY>
 ```
 
