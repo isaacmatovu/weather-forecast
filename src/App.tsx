@@ -96,7 +96,7 @@ export default function App() {
                 key={label}
                 className="flex sm:flex-row items-start justify-between "
               >
-                <span className="text-stone-400 mr-2 mb-2">{label}</span>
+                <p className="text-stone-400 mr-2 mb-2">{label}</p>
                 <p className="text-blue-300">{val}</p>
               </div>
             ))}
@@ -161,9 +161,9 @@ export default function App() {
               key={i}
               className="bg-[#f5f2ed] min-w-28 shrink-0 flex flex-col gap-1 p-3"
             >
-              <span className="font-mono-dm text-[10px] text-stone-400">
+              <p className="font-mono-dm text-[10px] text-stone-400">
                 {formatHour(h.time)}
-              </span>
+              </p>
               <img src={h.icon} alt="icon" className="w-7 h-7 my-1" />
               <div className="flex justify-center items-centergap-2 text-xl leading-none text-[#1a1a1a]">
                 <p>{h.temperature}°C</p>
