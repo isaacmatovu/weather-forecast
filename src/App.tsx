@@ -165,7 +165,7 @@ export default function App() {
                 {formatHour(h.time)}
               </p>
               <img src={h.icon} alt="icon" className="w-7 h-7 my-1" />
-              <div className="flex justify-center items-centergap-2 text-xl leading-none text-[#1a1a1a]">
+              <div className="flex justify-center items-center gap-2 text-xl text-[#1a1a1a]">
                 <p>{h.temperature}°C</p>
                 <p className="text-2xl">🌡️</p>
               </div>
